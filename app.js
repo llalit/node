@@ -4,6 +4,7 @@ var app = express();
 app.use(express.static('public'));
 var body = require('body-parser');
 var url = require('url');
+var path = require('path');
 
 
 app.get("/",(req,res)=>{
@@ -12,15 +13,15 @@ app.get("/",(req,res)=>{
 
 
 app.get("/1",(req,res)=>{
-	res.end("hello world <a href='/register'>limk</a> ");
-})
+	res.send("hello world <a href='/register'>link</a>");
+});
 
 app.get('/register',function(req,res){
-	res.sendFile(__dirname, + "/public/register.html" );
+	res.sendFile(path.join(__dirname+"/public/register.html"));
 });
 
 app.get('/login',(req,res)=>{
-	res.sendFile(__dirname+"./public/login.html");
+	res.sendFile(__dirname+"/public/login.html");
 });
 
 var server = app.listen(8080,()=>{
