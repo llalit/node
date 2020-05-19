@@ -12,7 +12,7 @@ app.get("/",(req,res)=>{
 
 
 app.get("/1",(req,res)=>{
-	res.end("hello world");
+	res.end("hello world <a href='/register'>limk</a> ");
 })
 
 app.get('/register',function(req,res){
